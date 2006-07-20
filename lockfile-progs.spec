@@ -1,4 +1,5 @@
 Summary:	Programs for locking and unlocking files and mailboxes
+Summary(pl):	Programy do blokowania i odblokowywania plików i skrzynek pocztowych
 Name:		lockfile-progs
 Version:	0.1.9
 Release:	0.2
@@ -10,9 +11,8 @@ BuildRequires:	liblockfile-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Programs for locking and unlocking files and mailboxes. This package
-includes several programs to safely lock and unlock files and
-mailboxes from the command line.
+This package includes several programs to safely lock and unlock files
+and mailboxes from the command line.
 
 These include:
 - lockfile-create
@@ -24,6 +24,19 @@ These include:
 
 These programs use liblockfile to perform the file locking and
 unlocking.
+
+%description -l pl
+Ten pakiet zawiera kilka programów do bezpiecznego blokowania i
+odblokowywania plików i skrzynek pocztowych z linii poleceñ:
+- lockfile-create
+- lockfile-remove
+- lockfile-touchlock
+- mail-lock
+- mail-unlock
+- mail-touchlock.
+
+Programy te wykorzystuj± bibliotekê liblockfile do wykonywania
+blokowania i odblokowywania plików.
 
 %prep
 %setup -q
