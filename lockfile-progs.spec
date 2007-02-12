@@ -1,5 +1,5 @@
 Summary:	Programs for locking and unlocking files and mailboxes
-Summary(pl.UTF-8):   Programy do blokowania i odblokowywania plików i skrzynek pocztowych
+Summary(pl.UTF-8):	Programy do blokowania i odblokowywania plików i skrzynek pocztowych
 Name:		lockfile-progs
 Version:	0.1.10
 Release:	0.1
