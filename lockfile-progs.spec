@@ -1,12 +1,12 @@
 Summary:	Programs for locking and unlocking files and mailboxes
 Summary(pl.UTF-8):	Programy do blokowania i odblokowywania plików i skrzynek pocztowych
 Name:		lockfile-progs
-Version:	0.1.10
+Version:	0.1.11
 Release:	0.1
 License:	GPL v2
 Group:		Applications
 Source0:	http://ftp.debian.org/debian/pool/main/l/lockfile-progs/%{name}_%{version}.tar.gz
-# Source0-md5:	f1edd71fed7e18dde3b3c46464e06e29
+# Source0-md5:	763da639a5644754728b5e27ef4f76f7
 BuildRequires:	liblockfile-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -39,10 +39,10 @@ Programy te wykorzystują bibliotekę liblockfile do wykonywania
 blokowania i odblokowywania plików.
 
 %prep
-%setup -q
+%setup -q -c
 
 %build
-%{__make} \
+%{__make} -C sid \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}"
 
@@ -50,8 +50,8 @@ blokowania i odblokowywania plików.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
-cp -a bin/* $RPM_BUILD_ROOT%{_bindir}
-cp -a man/* $RPM_BUILD_ROOT%{_mandir}/man1
+cp -a sid/bin/* $RPM_BUILD_ROOT%{_bindir}
+cp -a sid/man/* $RPM_BUILD_ROOT%{_mandir}/man1
 
 echo '.so lockfile-progs.1' > lockfile-progs.1
 install lockfile-progs.1 $RPM_BUILD_ROOT%{_mandir}/man1/lockfile-create.1
@@ -66,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc TODO
+%doc sid/TODO sid/debian/changelog
 %attr(755,root,root) %{_bindir}/lockfile-create
 %attr(755,root,root) %{_bindir}/lockfile-remove
 %attr(755,root,root) %{_bindir}/lockfile-touch
