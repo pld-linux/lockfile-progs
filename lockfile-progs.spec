@@ -1,12 +1,12 @@
 Summary:	Programs for locking and unlocking files and mailboxes
 Summary(pl.UTF-8):	Programy do blokowania i odblokowywania plików i skrzynek pocztowych
 Name:		lockfile-progs
-Version:	0.1.11
+Version:	0.1.15
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://ftp.debian.org/debian/pool/main/l/lockfile-progs/%{name}_%{version}.tar.gz
-# Source0-md5:	763da639a5644754728b5e27ef4f76f7
+# Source0-md5:	abfcda83a1868073673f4d78066b8f8a
 BuildRequires:	liblockfile-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,6 +54,7 @@ cp -a sid/bin/* $RPM_BUILD_ROOT%{_bindir}
 cp -a sid/man/* $RPM_BUILD_ROOT%{_mandir}/man1
 
 echo '.so lockfile-progs.1' > lockfile-progs.1
+install lockfile-progs.1 $RPM_BUILD_ROOT%{_mandir}/man1/lockfile-check.1
 install lockfile-progs.1 $RPM_BUILD_ROOT%{_mandir}/man1/lockfile-create.1
 install lockfile-progs.1 $RPM_BUILD_ROOT%{_mandir}/man1/lockfile-remove.1
 install lockfile-progs.1 $RPM_BUILD_ROOT%{_mandir}/man1/lockfile-touch.1
@@ -67,12 +68,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc sid/TODO sid/debian/changelog
+%attr(755,root,root) %{_bindir}/lockfile-check
 %attr(755,root,root) %{_bindir}/lockfile-create
 %attr(755,root,root) %{_bindir}/lockfile-remove
 %attr(755,root,root) %{_bindir}/lockfile-touch
 %attr(755,root,root) %{_bindir}/mail-lock
 %attr(755,root,root) %{_bindir}/mail-touchlock
 %attr(755,root,root) %{_bindir}/mail-unlock
+%{_mandir}/man1/lockfile-check.1*
 %{_mandir}/man1/lockfile-create.1*
 %{_mandir}/man1/lockfile-progs.1*
 %{_mandir}/man1/lockfile-remove.1*
