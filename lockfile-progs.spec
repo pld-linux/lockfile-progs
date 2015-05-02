@@ -2,7 +2,7 @@ Summary:	Programs for locking and unlocking files and mailboxes
 Summary(pl.UTF-8):	Programy do blokowania i odblokowywania plików i skrzynek pocztowych
 Name:		lockfile-progs
 Version:	0.1.17
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications
 Source0:	http://ftp.debian.org/debian/pool/main/l/lockfile-progs/%{name}_%{version}.tar.gz
