@@ -1,13 +1,15 @@
 Summary:	Programs for locking and unlocking files and mailboxes
 Summary(pl.UTF-8):	Programy do blokowania i odblokowywania plików i skrzynek pocztowych
 Name:		lockfile-progs
-Version:	0.1.19
+Version:	0.2.0
 Release:	1
 License:	GPL v2
 Group:		Applications
-Source0:	http://ftp.debian.org/debian/pool/main/l/lockfile-progs/%{name}_%{version}.tar.gz
-# Source0-md5:	3a18932a04a1a706f6b2e05e0f50e3c2
+Source0:	http://ftp.debian.org/debian/pool/main/l/lockfile-progs/%{name}_%{version}.tar.xz
+# Source0-md5:	b7648d308c47ee018900191ba6409119
 BuildRequires:	liblockfile-devel
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -53,21 +55,12 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 cp -a bin/* $RPM_BUILD_ROOT%{_bindir}
 cp -a man/* $RPM_BUILD_ROOT%{_mandir}/man1
 
-echo '.so lockfile-progs.1' > lp.1
-install lp.1 $RPM_BUILD_ROOT%{_mandir}/man1/lockfile-check.1
-install lp.1 $RPM_BUILD_ROOT%{_mandir}/man1/lockfile-create.1
-install lp.1 $RPM_BUILD_ROOT%{_mandir}/man1/lockfile-remove.1
-install lp.1 $RPM_BUILD_ROOT%{_mandir}/man1/lockfile-touch.1
-install lp.1 $RPM_BUILD_ROOT%{_mandir}/man1/mail-lock.1
-install lp.1 $RPM_BUILD_ROOT%{_mandir}/man1/mail-unlock.1
-install lp.1 $RPM_BUILD_ROOT%{_mandir}/man1/mail-touchlock.1
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc TODO debian/changelog
+%doc debian/changelog
 %attr(755,root,root) %{_bindir}/lockfile-check
 %attr(755,root,root) %{_bindir}/lockfile-create
 %attr(755,root,root) %{_bindir}/lockfile-remove
